@@ -35,6 +35,16 @@ After running the `push --set-upstream origin <branch>` command, you can add and
 ## reset <directory>
 Let's say you added some code with the `git add` command that you didn't actually want to add and push to the repo. Using this command and undo this add for any specified files or directories. For example, let's say you added the `./code-not-to-push.xml` file on accident. You can run `git reset ./code-not-to-push.xml` and it will un-stage that file.
 
+## log
+This command will print out the commit history of a branch and print out the following for each commit that has been done:
+
+- Commit SHA
+- Author of the commit
+- The date of the commit
+- The commit message of the commit
+
+Simply just run `git log` and it will print all items out. To exit the preview of the commit history, type `q` in the terminal to exit.
+
 # Common Mistakes
 ## Commiting code that should not have been commited
 Solutions:
