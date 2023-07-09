@@ -1,1 +1,3 @@
 # gitflow-playground
+## Common Mistakes:
+- 
