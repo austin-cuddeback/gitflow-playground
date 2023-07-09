@@ -3,6 +3,9 @@
 ## git
 Let's the terminal know that you are wanting to run a git command. For any git command you run, it must start with `git`
 
+## clone
+Allows you to make a local copy of the remote repository on your machine. This command can easily be found in the Github Repositories home page.
+
 ## branch
 Prints out what branch you are currently on. Let's say you don't know what branch you are on right now. You can run `git branch` and it will print out the branch you are on.
 
