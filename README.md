@@ -72,14 +72,52 @@ Solutions:
 
 3. If you want to completely discard the changes made in the unwanted commit(s) and remove them from your working directory, you can add the --hard option to the git reset command:
 
-    `git reset --hard <commit>`
+        `git reset --hard <commit>`
 
     Caution: Be careful when using git reset --hard as it permanently discards the changes.
 ## Pushing code that should not have been pushed
 Solution:
-## Pushing up code that should not have been pushed but there are a few pushed commits ahead of it
-Solution:
-## Merge Conflicts
-Solution:
+
+If you have pushed code that you shouldn't have, you can still undo the changes, but it requires additional steps and considerations. Here's a step-by-step approach to undoing the pushed code:
+
+1. Identify the commit you want to revert: Determine the commit that introduced the changes you want to undo. You can use `git log` to find the commit hash or other references.
+
+2. Create a new commit to revert the changes: Use the git revert command to create a new commit that undoes the changes made in the undesired commit. Open your terminal, navigate to your Git repository, and run the following command:
+
+        `git revert <commit>`
+
+         # Replace <commit> with the commit you want to revert.
+
+    Git will create a new commit that undoes the changes introduced by the specified commit. The commit message will indicate that it is reverting the changes.
+
+3. Push the new revert commit: After creating the revert commit, you need to push it to the remote repository to apply the undo changes. Use the following command:
+
+        `git push origin <branch_name>`
+        # Replace <branch_name> with the name of the branch where you made the original commit.
+
+    By pushing the new revert commit, you effectively revert the undesired changes on the remote repository.
+
+4. Communicate with collaborators: 
+
+    If others have already fetched or cloned the repository, they will need to be aware of the revert commit. Inform your collaborators about the undo changes so that they can update their local repositories accordingly.
 ## Merging code into a branch that should not have been merged
 Solution:
+If you have merged code that shouldn't have been merged and you want to undo the merge, you can use Git's git revert command. However, it's important to note that undoing a merge is a more complex operation compared to undoing a regular commit. Here's a step-by-step approach:
+1. Using git revert to undo the merge:
+    a. Identify the commit that represents the merge you want to undo. You can use `git log` to find the specific commit hash.
+
+    b. Run the following command to create a new revert commit that undoes the changes introduced by the merge commit:
+
+            git revert -m 1 <merge_commit>
+            # Replace <merge_commit> with the hash of the merge commit you want to undo.
+
+    The `-m 1` option tells Git to revert the changes from the first parent, effectively undoing the merge.
+
+    c. Git will create a new commit that undoes the merge changes. The commit message will indicate that it is reverting the merge commit.
+
+    d. Finally, push the newly created revert commit to the remote repository:
+
+            git push origin <branch_name>
+            # Replace <branch_name> with the name of the branch where the merge was performed.
+
+    By reverting the merge commit, you effectively undo the changes introduced by the merge.
