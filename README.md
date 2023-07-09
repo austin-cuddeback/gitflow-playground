@@ -1,3 +1,14 @@
+# Common Mistakes
+## Commiting code that should not have been commited
+Solution:
+## Pushing code that should not have been pushed
+Solution:
+## Pushing up code that should not have been pushed but there are a few pushed commits ahead of it
+Solution:
+## Merge Conflicts
+Solution:
+## Merging code into a branch that should not have been merged
+Solution:
 # Most common git commands:
 
 ## git
