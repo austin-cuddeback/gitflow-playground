@@ -1,16 +1,5 @@
-# Common Mistakes
-## Commiting code that should not have been commited
-Solution:
-## Pushing code that should not have been pushed
-Solution:
-## Pushing up code that should not have been pushed but there are a few pushed commits ahead of it
-Solution:
-## Merge Conflicts
-Solution:
-## Merging code into a branch that should not have been merged
-Solution:
-# Most common git commands:
 
+# Most common git commands:
 ## git
 Let's the terminal know that you are wanting to run a git command. For any git command you run, it must start with `git`
 
@@ -45,3 +34,52 @@ After running the `push --set-upstream origin <branch>` command, you can add and
 
 ## reset <directory>
 Let's say you added some code with the `git add` command that you didn't actually want to add and push to the repo. Using this command and undo this add for any specified files or directories. For example, let's say you added the `./code-not-to-push.xml` file on accident. You can run `git reset ./code-not-to-push.xml` and it will un-stage that file.
+
+# Common Mistakes
+## Commiting code that should not have been commited
+Solutions:
+
+1. Using git revert:
+
+    The git revert command creates a new commit that undoes the changes made in a previous commit while preserving a history of what was done.
+
+        a. Open your terminal and navigate to your Git repository.
+
+        b. Run `git log` and find the commit SHA you want to remove
+
+        b.Run the following command, replacing <commit> with the commit you want to undo:
+
+        `git revert <commit>`
+
+        c. Git will create a new commit that undoes the changes introduced by the specified commit.
+
+    If there are multiple commits you want to undo, you can specify a range of commits. For example:
+
+        a. git revert <start_commit>..<end_commit>
+        b. The new commit created by git revert will have a commit message indicating that it is reverting the changes made in the previous commit(s).
+
+2. Using git reset:
+
+    The git reset command allows you to move the branch pointer backward to an earlier commit, effectively removing the commits that you don't want.
+
+        a. Open your terminal and navigate to your Git repository.
+
+        b. Run the following command, replacing <commit> with the commit you want to reset to:
+
+        `git reset <commit>`
+
+    This will move the branch pointer to the specified commit, effectively removing the commits that came after it. The changes from the removed commits will still be present in your working directory as uncommitted changes.
+
+3. If you want to completely discard the changes made in the unwanted commit(s) and remove them from your working directory, you can add the --hard option to the git reset command:
+
+    `git reset --hard <commit>`
+
+    Caution: Be careful when using git reset --hard as it permanently discards the changes.
+## Pushing code that should not have been pushed
+Solution:
+## Pushing up code that should not have been pushed but there are a few pushed commits ahead of it
+Solution:
+## Merge Conflicts
+Solution:
+## Merging code into a branch that should not have been merged
+Solution:
