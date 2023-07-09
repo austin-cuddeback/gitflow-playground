@@ -131,3 +131,33 @@ If you have merged code that shouldn't have been merged and you want to undo the
             # Replace <branch_name> with the name of the branch where the merge was performed.
 
     By reverting the merge commit, you effectively undo the changes introduced by the merge.
+
+## Recieving a `failed to push some refs` error upon trying to push code:
+You can recieve this error for many reasons. Though, most of the time it means that the remote branch is ahead of your local branch. Let's look at a couple of scenarios:
+
+1.Another developer pushed a commit to the same branch
+The error in your terminal looks like this:
+
+            To git@git.testdomain.com:sometest.git
+            ! [rejected] your-branch -] your-branch (non-fast-forward)
+When this occurs, the head sits at different positions on the same code timeline, and Git does not know how to handle it. This is because the origin repository is ahead of where you currently are. To fix this issue, run git pull on your local repository. This should allow you to push to origin again.
+
+            git pull origin [your-branch]
+            git push origin [your-branch]
+
+2.You got a ‘master (non-fast-forward)’ error with a ‘failed to push some refs to’ error
+
+A git fast-forward happens when the ref pointer gets moved forward in the commit history. However, if your code diverges before it reaches the latest commit, it can cause the non-fast-forward issue and lead to a failed to push some refs to error.
+
+To solve this issue, you can pull with the --rebase flag. --rebase will let you move your intended files to commit over to the latest pull code.
+
+Here is how to pull with --rebase:
+
+        git pull --rebase origin [branch]
+
+### How to prevent this error:
+To prevent failed to push some refs to errors in Git, it is good practice to avoid having multiple developers work on the same branch simultaneously. Instead, use feature branches that merge into a master branch or something equivalent.
+
+If you get a failed to push some refs to error, the main thing to do is git pull to bring your local repo up to date with the remote. Avoid employing the --force flag when using git pull and prevent other developers’ accidental overwrites of committed features.
+
+Use the --rebase flag instead to avoid other errors from occurring while fixing your original failed to push some refs to error.
