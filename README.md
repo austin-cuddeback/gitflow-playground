@@ -1,3 +1,10 @@
+# Helpful links and resources:
+- Git Installation: [Git](https://git-scm.com/downloads)
+- Setting up SSH Key and linking to your github: [SSH KEY Setup](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+- Other Git Tutorials:
+    - [Programming with Mosh](https://www.youtube.com/watch?v=8JJ101D3knE)
+    - [Free Code Camp](https://www.youtube.com/watch?v=RGOj5yH7evk)
+    - [Free Code Camp - Git for professionals](youtube.com/watch?v=Uszj_k0DGsg)
 
 # Most common git commands:
 ## git
